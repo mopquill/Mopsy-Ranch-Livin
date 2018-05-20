@@ -22,8 +22,8 @@ namespace MopsyRanchLife
         public void SaveEvents_AfterLoad(object sender, EventArgs e)
         {
             _config = Helper.ReadJsonFile<ModConfig>(Path.Combine(Constants.CurrentSavePath, "Mopsy-Ranch-Livin.json")) ?? new ModConfig();
-            Console.WriteLine("Debug: _config.Suffix = " + _config.Suffix);
-            if (_config.Suffix != Suffix)
+            //Console.WriteLine("Debug: _config.Suffix = " + _config.Suffix);
+            if (!String.IsNullOrEmpty(_config.Suffix) && _config.Suffix != Suffix)
             {
                 ChangeFarmSuffix("config", new[] { _config.Suffix });
             }
