@@ -9,7 +9,7 @@
 
 ## Install
 1. [Install the latest version of SMAPI](https://smapi.io).
-2. Install Mopsy's Ranch Livin' from the **Files** section of [its Nexus page]().
+2. Install Mopsy's Ranch Livin' from the **Files** section of [its Nexus page](https://www.nexusmods.com/stardewvalley/mods/2200).
 3. Launch Stardew Valley via SMAPI!
 
 ## Configure
