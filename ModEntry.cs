@@ -1,16 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using Mopsy_Ranch_Livin;
+using System.Collections.Generic;
 using StardewValley;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
+using Mopsy_Ranch_Livin;
 
 namespace MopsyRanchLife
 {
     public class ModEntry : Mod, IAssetEditor
     {
         private string Suffix { get; set; } = "Ranch";
+        private int MaxSuffixLength { get; set; } = 10;
         private ModConfig _config;
 
         public override void Entry(IModHelper helper)
@@ -22,7 +23,6 @@ namespace MopsyRanchLife
         public void SaveEvents_AfterLoad(object sender, EventArgs e)
         {
             _config = Helper.ReadJsonFile<ModConfig>(Path.Combine(Constants.CurrentSavePath, "Mopsy-Ranch-Livin.json")) ?? new ModConfig();
-            //Console.WriteLine("Debug: _config.Suffix = " + _config.Suffix);
             if (!String.IsNullOrEmpty(_config.Suffix) && _config.Suffix != Suffix)
             {
                 ChangeFarmSuffix("config", new[] { _config.Suffix });
@@ -31,8 +31,17 @@ namespace MopsyRanchLife
 
         public void ChangeFarmSuffix(string name, string[] args)
         {
+            if (!Context.IsWorldReady)
+            {
+                Monitor.Log("You must load a save to use this command. Things will show as \"Ranch\" until then.", LogLevel.Info);
+                return;
+            }
             Suffix = args[0];
-            //Console.WriteLine("Debug: " + name);
+            if (Suffix.Length > MaxSuffixLength)
+            {
+                Monitor.Log($"You may not use a farm name suffix longer than {MaxSuffixLength} characters long.", LogLevel.Info);
+                return;
+            }
             if (name == "farm_setsuffix")
             {
                 _config.Suffix = Suffix;
