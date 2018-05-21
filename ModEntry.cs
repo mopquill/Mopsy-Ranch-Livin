@@ -10,7 +10,8 @@ namespace MopsyRanchLife
 {
     public class ModEntry : Mod, IAssetEditor
     {
-        private string Suffix { get; set; } = "Ranch";
+        private static readonly string DefaultSuffix = "Ranch";
+        private string Suffix { get; set; } = DefaultSuffix;
         private int MaxSuffixLength { get; set; } = 10;
         private ModConfig _config;
 
@@ -18,6 +19,7 @@ namespace MopsyRanchLife
         {
             helper.ConsoleCommands.Add("farm_setsuffix", "Sets the player's farm suffix.\n\nUsage: farm_setsuffix <value>\n- value: farm suffix, e.g. Ranch.", ChangeFarmSuffix);
             SaveEvents.AfterLoad += this.SaveEvents_AfterLoad;
+            SaveEvents.AfterReturnToTitle += this.SaveEvents_AfterReturnToTitle;
         }
 
         public void SaveEvents_AfterLoad(object sender, EventArgs e)
@@ -29,6 +31,11 @@ namespace MopsyRanchLife
             }
         }
 
+        public void SaveEvents_AfterReturnToTitle(object sender, EventArgs e)
+        {
+            ChangeFarmSuffix("config", new[] { DefaultSuffix });
+        }
+
         public void ChangeFarmSuffix(string name, string[] args)
         {
             if (!Context.IsWorldReady)
@@ -37,6 +44,11 @@ namespace MopsyRanchLife
                 return;
             }
             Suffix = args[0];
+            if (String.IsNullOrEmpty(Suffix))
+            {
+                Monitor.Log($"You must specify a name to change your farm suffix to!", LogLevel.Info);
+                return;
+            }
             if (Suffix.Length > MaxSuffixLength)
             {
                 Monitor.Log($"You may not use a farm name suffix longer than {MaxSuffixLength} characters long.", LogLevel.Info);
