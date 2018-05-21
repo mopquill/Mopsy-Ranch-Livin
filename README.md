@@ -14,12 +14,17 @@
 
 ## Configure
 1. Load up a save file. If you want your suffix to be "Ranch", you're done!
-2. If you want it to be something else, run the command `farm_setsuffix Ranch` in the SMAPI command prompt, where Ranch is something else. Don't make it too long or it'll look dumb in some places.
+2. If you want it to be something other than "Ranch", run the command `farm_setsuffix Ranch` in the SMAPI command prompt, where "Ranch" is something else. Don't make it too long or it'll look dumb in some places.
 
-That's it! Running that command saves it to a config file, so whenever you load up a save, it'll remember which suffix you used for that save! You can find this config file in your Saves folder, and you can also edit it manually!
+That's it! Running that command saves it to a per-save config file, so whenever you load up a save, it'll remember which suffix you last used for that save! You can find this config file in your Saves folder, and you can also edit it manually!
+
+Suffixes are limited to 10 characters to avoid silly things, but still don't make it too long/wide, or it might look dumb in some places.
+ 
+Romani Ranch, here I come! ;D
 
 ## Notes
-Tested with Stardew Valley 1.3.11-beta and SMAPI 2.6-beta.14.
+* Tested with Stardew Valley 1.3.11-beta and SMAPI 2.6-beta.14.
+* Right now, this is only for English. I don't speak any other languages well enough to translate this. If anyone else would like to muck around the various strings/dialogues/events and create translations, let me know. If the keys are not different, I just need the word I need to replace, and with what, and if they keys are also translated, I'd need the files/keys as well.
 
 ## Changelog
 ### 1.0.0
