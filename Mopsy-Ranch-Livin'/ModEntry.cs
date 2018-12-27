@@ -1,12 +1,10 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
-using StardewValley;
+using System.IO;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
-using Mopsy_Ranch_Livin;
 
-namespace MopsyRanchLife
+namespace Mopsy_Ranch_Livin
 {
     public class ModEntry : Mod, IAssetEditor
     {

@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using StardewModdingAPI;
-using StardewModdingAPI.Events;
-using StardewModdingAPI.Utilities;
-using StardewValley;
-
-namespace Mopsy_Ranch_Livin
+﻿namespace Mopsy_Ranch_Livin
 {
     internal class ModConfig
     {
