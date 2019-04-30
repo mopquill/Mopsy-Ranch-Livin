@@ -27,7 +27,7 @@ Romani Ranch, here I come! ;D
 * Right now, this is only for English. I don't speak any other languages well enough to translate this. If anyone else would like to muck around the various strings/dialogues/events and create translations, let me know. If the keys are not different, I just need the word I need to replace, and with what, and if they keys are also translated, I'd need the files/keys as well.
 
 ## Changelog
-### 1.0.1
+### 1.0.2
 * Updated for the upcoming SMAPI 3.0. (Pathoschild is my personal hero)
 * The preferred suffix is now stored in the save file. (Previous players may need to run `farm_setsuffix` again.)
 
