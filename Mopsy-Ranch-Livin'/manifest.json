@@ -6,5 +6,5 @@
   "UniqueID": "Mopquill.Ranch-Livin",
   "EntryDll": "Mopsy-Ranch-Livin.dll",
   "MinimumApiVersion": "2.9.3",
-  "UpdateKeys": [ "Nexus:2200" ]
+  "UpdateKeys": [ "Nexus:2200", "GitHub:mopquill/Mopsys-Ranch-Livin" ]
 }
